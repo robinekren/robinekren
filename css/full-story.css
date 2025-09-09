@@ -121,50 +121,115 @@
     cursor: pointer;
 }
 
-/* Story Timeline */
-.story-timeline-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-    padding: 6rem 0;
+/* Premium Timeline Section */
+.premium-timeline-section {
+    background: var(--rich-black);
+    background-image: 
+        radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(229, 228, 226, 0.06) 0%, transparent 50%);
+    padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
 }
 
-.story-timeline {
-    max-width: 800px;
+.premium-timeline-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.02) 50%, transparent 52%);
+    background-size: 60px 60px;
+    animation: timelinePattern 25s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes timelinePattern {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(60px, 60px); }
+}
+
+.premium-timeline {
+    max-width: 900px;
     margin: 0 auto;
     position: relative;
 }
 
-.story-timeline::before {
+.premium-timeline::before {
     content: '';
     position: absolute;
     left: 2rem;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    width: 3px;
+    background: var(--primary-gold);
+    border-radius: 2px;
+    box-shadow: var(--shadow-gold);
 }
 
 .timeline-item {
     position: relative;
-    padding-left: 5rem;
-    margin-bottom: 3rem;
+    padding-left: 6rem;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.timeline-item.animate-in {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .timeline-marker {
     position: absolute;
-    left: 1.25rem;
+    left: 1rem;
     top: 0.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    background: var(--primary-color);
+    width: 2rem;
+    height: 2rem;
+    background: var(--primary-gold);
     border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 0 0 3px var(--primary-color);
+    border: 4px solid var(--deep-black);
+    box-shadow: var(--shadow-gold);
+    z-index: 2;
+}
+
+.timeline-marker::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: var(--deep-black);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.timeline-content {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-premium);
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    transition: var(--transition-luxury);
+}
+
+.timeline-content:hover {
+    background: var(--glass-hover);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-premium);
 }
 
 .timeline-content h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: var(--primary-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 1rem;
 }
 
@@ -175,10 +240,15 @@
     margin: 0;
 }
 
-/* Business Philosophy Section */
-.business-philosophy {
-    background: var(--bg-primary);
-    padding: 6rem 0;
+/* Gaming Philosophy Section */
+.gaming-philosophy-section {
+    background: var(--carbon-black);
+    background-image: 
+        radial-gradient(circle at 25% 75%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(229, 228, 226, 0.08) 0%, transparent 50%);
+    padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .philosophy-content {
@@ -190,129 +260,236 @@
 
 .philosophy-images {
     display: flex;
-    gap: 1rem;
     flex-direction: column;
+    gap: 2rem;
+}
+
+.philosophy-images .image-container.large {
+    height: 300px;
+    background: var(--glass-bg);
+    border: 2px dashed var(--glass-border);
+    border-radius: var(--radius-premium);
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition-luxury);
+    position: relative;
+    overflow: hidden;
+}
+
+.philosophy-images .image-container.small {
+    height: 200px;
+    background: var(--glass-bg);
+    border: 2px dashed var(--glass-border);
+    border-radius: var(--radius-premium);
+    padding: 1.5rem;
+    text-align: center;
+    transition: var(--transition-luxury);
+    position: relative;
+    overflow: hidden;
 }
 
 .philosophy-text {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.8;
     color: var(--text-secondary);
 }
 
 .philosophy-text strong {
-    color: var(--text-primary);
+    color: var(--text-gold);
     font-weight: 600;
-}
-
-/* Struggles Section */
-.struggles-section {
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-    padding: 6rem 0;
-}
-
-.struggles-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-}
-
-.struggles-text {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
-}
-
-.struggles-text strong {
-    color: var(--text-primary);
-    font-weight: 600;
-}
-
-.struggles-images {
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
 }
 
 /* Career Section */
 .career-section {
-    background: var(--bg-primary);
+    background: var(--rich-black);
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(229, 228, 226, 0.1) 0%, transparent 50%);
     padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .career-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+.career-images {
+    display: flex;
+    gap: 2rem;
+}
+
+.career-images .image-container.city {
+    flex: 1;
+    height: 250px;
+    background: var(--glass-bg);
+    border: 2px dashed var(--glass-border);
+    border-radius: var(--radius-premium);
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition-luxury);
+}
+
+.career-images .image-container.personal {
+    flex: 1;
+    height: 200px;
+    background: var(--glass-bg);
+    border: 2px dashed var(--glass-border);
+    border-radius: var(--radius-premium);
+    padding: 1.5rem;
+    text-align: center;
+    transition: var(--transition-luxury);
+    align-self: flex-end;
+}
+
+.career-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.career-text strong {
+    color: var(--text-gold);
+    font-weight: 600;
+}
+
+.career-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 4rem;
+    background: var(--primary-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.career-story {
     max-width: 900px;
-    margin: 0 auto 4rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.career-story .story-text {
     font-size: 1.125rem;
     line-height: 1.8;
     color: var(--text-secondary);
 }
 
-.career-content p {
-    margin-bottom: 2rem;
-}
-
-.career-content strong {
-    color: var(--text-primary);
+.career-story .story-text strong {
+    color: var(--text-gold);
     font-weight: 600;
-}
-
-.career-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 /* Giving Back Section */
 .giving-back-section {
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    background: var(--carbon-black);
+    background-image: 
+        radial-gradient(circle at 40% 60%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 60% 40%, rgba(229, 228, 226, 0.08) 0%, transparent 50%);
     padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.giving-back-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 4rem;
+    background: var(--primary-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .giving-back-content {
-    max-width: 900px;
-    margin: 0 auto 4rem;
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
+    max-width: 1000px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.giving-back-content strong {
-    color: var(--text-primary);
+.giving-back-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.giving-back-text strong {
+    color: var(--text-gold);
     font-weight: 600;
 }
 
-.giving-back-image {
-    max-width: 600px;
-    margin: 0 auto 4rem;
+.charity-images {
+    margin-bottom: 4rem;
 }
 
-.final-cta {
+.charity-images .image-container.charity {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    margin: 0 auto;
+    background: var(--glass-bg);
+    border: 2px dashed var(--glass-border);
+    border-radius: var(--radius-premium);
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition-luxury);
+}
+
+.eko-university-cta {
     text-align: center;
 }
 
-.eko-university-final-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+/* Story CTA Section */
+.story-cta {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, #FFA500 100%);
+    padding: 6rem 0;
+    text-align: center;
+    color: var(--deep-black);
+}
+
+.story-cta h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
     color: white;
+}
+
+.story-cta p {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background: white;
+    color: var(--primary-color);
     padding: 1.2rem 3rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     border-radius: 0.75rem;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
-    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.eko-university-final-btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
-    filter: brightness(1.1);
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: #f8f9fa;
 }
 
 /* Responsive Design */
@@ -335,7 +512,7 @@
         order: -1;
     }
     
-    .story-timeline::before {
+    .premium-timeline::before {
         left: 1rem;
     }
     
@@ -347,23 +524,47 @@
         left: 0.25rem;
     }
     
-    .philosophy-content,
-    .struggles-content {
+    .philosophy-content {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
     
-    .struggles-content .struggles-text {
-        order: 1;
+    .philosophy-images {
+        order: -1;
     }
     
-    .struggles-content .struggles-images {
-        order: 2;
+    .career-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
     
     .career-images {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        flex-direction: column;
+        gap: 1.5rem;
+        order: -1;
+    }
+    
+    .career-images .image-container.personal {
+        align-self: stretch;
+    }
+    
+    .career-title,
+    .giving-back-title {
+        font-size: 2.5rem;
+    }
+    
+    .philosophy-text,
+    .career-text,
+    .giving-back-text {
+        font-size: 1.1rem;
+    }
+    
+    .story-cta h2 {
+        font-size: 2rem;
+    }
+    
+    .story-cta p {
+        font-size: 1.1rem;
     }
 }
 
@@ -397,14 +598,11 @@
         font-size: 1rem;
     }
     
-    .philosophy-text,
-    .struggles-text,
-    .career-content,
-    .giving-back-content {
-        font-size: 1rem;
+    .story-cta h2 {
+        font-size: 1.75rem;
     }
     
-    .eko-university-final-btn {
+    .cta-button {
         padding: 1rem 2rem;
         font-size: 1rem;
     }
