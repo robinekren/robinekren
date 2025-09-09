@@ -277,6 +277,7 @@ a {
 }
 
 .full-story-btn {
+    display: inline-block;
     background: rgba(255, 255, 255, 0.2);
     color: white;
     border: 2px solid rgba(255, 255, 255, 0.3);
@@ -288,12 +289,14 @@ a {
     cursor: pointer;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    text-decoration: none;
 }
 
 .full-story-btn:hover {
     background: rgba(255, 255, 255, 0.3);
     border-color: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
+    color: white;
 }
 
 /* ===== Projects Section ===== */
