@@ -122,7 +122,7 @@
 }
 
 /* Story Timeline */
-.story-continuation {
+.story-timeline-section {
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     padding: 6rem 0;
 }
@@ -175,47 +175,144 @@
     margin: 0;
 }
 
-/* Story CTA Section */
-.story-cta {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+/* Business Philosophy Section */
+.business-philosophy {
+    background: var(--bg-primary);
     padding: 6rem 0;
+}
+
+.philosophy-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.philosophy-images {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.philosophy-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.philosophy-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Struggles Section */
+.struggles-section {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    padding: 6rem 0;
+}
+
+.struggles-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.struggles-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.struggles-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.struggles-images {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+/* Career Section */
+.career-section {
+    background: var(--bg-primary);
+    padding: 8rem 0;
+}
+
+.career-content {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.career-content p {
+    margin-bottom: 2rem;
+}
+
+.career-content strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.career-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Giving Back Section */
+.giving-back-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 8rem 0;
+}
+
+.giving-back-content {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
     text-align: center;
-    color: white;
 }
 
-.story-cta h2 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: white;
+.giving-back-content strong {
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
-.story-cta p {
-    font-size: 1.25rem;
-    margin-bottom: 3rem;
-    opacity: 0.9;
+.giving-back-image {
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 4rem;
 }
 
-.cta-button {
+.final-cta {
+    text-align: center;
+}
+
+.eko-university-final-btn {
     display: inline-block;
-    background: white;
-    color: var(--primary-color);
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
     padding: 1.2rem 3rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     border-radius: 0.75rem;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    letter-spacing: 1px;
 }
 
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    background: #f8f9fa;
+.eko-university-final-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+    filter: brightness(1.1);
 }
 
 /* Responsive Design */
@@ -250,12 +347,23 @@
         left: 0.25rem;
     }
     
-    .story-cta h2 {
-        font-size: 2rem;
+    .philosophy-content,
+    .struggles-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
     
-    .story-cta p {
-        font-size: 1.1rem;
+    .struggles-content .struggles-text {
+        order: 1;
+    }
+    
+    .struggles-content .struggles-images {
+        order: 2;
+    }
+    
+    .career-images {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
 
@@ -289,11 +397,14 @@
         font-size: 1rem;
     }
     
-    .story-cta h2 {
-        font-size: 1.75rem;
+    .philosophy-text,
+    .struggles-text,
+    .career-content,
+    .giving-back-content {
+        font-size: 1rem;
     }
     
-    .cta-button {
+    .eko-university-final-btn {
         padding: 1rem 2rem;
         font-size: 1rem;
     }
