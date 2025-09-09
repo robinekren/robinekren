@@ -228,46 +228,133 @@ a {
 }
 
 /* ===== About Section ===== */
+.about-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="leaves" patternUnits="userSpaceOnUse" width="100" height="100"><path d="M20,20 Q40,10 60,20 Q40,30 20,20" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23leaves)"/></svg>');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 8rem 0;
+    color: white;
+    position: relative;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.about-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.about-title {
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+}
+
 .about-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
 }
 
-.about-text p {
-    font-size: 1.125rem;
+.about-text {
+    font-size: 1.25rem;
     line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+}
+
+.full-story-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.full-story-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
 }
 
 /* ===== Projects Section ===== */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+.projects-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="leaves2" patternUnits="userSpaceOnUse" width="120" height="120"><path d="M30,30 Q50,20 70,30 Q50,40 30,30" fill="%23ffffff" opacity="0.08"/></pattern></defs><rect width="100%" height="100%" fill="url(%23leaves2)"/></svg>');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 8rem 0;
+    color: white;
+    position: relative;
 }
 
-.project-card {
-    background: var(--bg-primary);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-light);
-    transition: var(--transition);
-    border: 1px solid var(--border-color);
+.projects-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-large);
+.projects-section .container {
+    position: relative;
+    z-index: 2;
 }
 
-.project-card h3 {
-    color: var(--text-primary);
-    margin-bottom: 1rem;
+.projects-title {
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: white;
 }
 
-.project-card p {
-    color: var(--text-secondary);
+.projects-content {
+    text-align: center;
+}
+
+.eko-university-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.eko-university-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== Contact Section ===== */
@@ -283,15 +370,22 @@ a {
 
 /* ===== Footer ===== */
 .footer {
-    background-color: var(--text-primary);
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.95));
     color: white;
     text-align: center;
-    padding: 2rem 0;
+    padding: 2.5rem 0;
+    position: relative;
 }
 
 .footer p {
-    color: var(--text-light);
-    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+.footer-company {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* ===== Responsive Design ===== */
@@ -350,6 +444,28 @@ a {
         font-size: 1.75rem;
     }
 
+    .about-title,
+    .projects-title {
+        font-size: 2.5rem;
+    }
+
+    .about-text {
+        font-size: 1.1rem;
+    }
+
+    .about-section,
+    .projects-section {
+        padding: 5rem 0;
+        background-attachment: scroll;
+    }
+
+    .full-story-btn,
+    .eko-university-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
     .section {
         padding: 3rem 0;
     }
@@ -368,8 +484,19 @@ a {
         font-size: 1rem;
     }
 
-    .projects-grid {
-        grid-template-columns: 1fr;
+    .about-title,
+    .projects-title {
+        font-size: 2rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+
+    .full-story-btn,
+    .eko-university-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
     }
 }
 
