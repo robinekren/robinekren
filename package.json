@@ -1,0 +1,21 @@
+{
+  "name": "robinekren-website",
+  "version": "1.0.0",
+  "description": "Personal website for Robin Ekren",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server --port=3002 --open=/",
+    "build": "echo 'Ready for deployment'",
+    "dev": "npx live-server --port=3002 --open=/ --watch=.",
+    "deploy": "vercel --prod",
+    "preview": "vercel"
+  },
+  "keywords": ["personal", "website", "portfolio"],
+  "author": "Robin Ekren",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "vercel": "^33.0.0"
+  },
+  "dependencies": {}
+}
